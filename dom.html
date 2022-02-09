@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <head>
+        <h1>
+        Welcome to my Blogs
+        </h1>
+    </head>
+    <main>
+       <section id="all-blogs">
+           <header>
+               <h2>Some list number</h2>
+               <ul id="lists">
+                <li>list no -1</li>
+                <li>list no -2</li>
+                <li>list no -3</li>
+                <li>list no -4</li>
+                <li id="special-one">list no -5</li>
+                <li>list no -6</li>
+                <li>list no -7</li>
+                <li>list no -8</li>
+                <li>list no -9</li>
+                <li>list no -10</li>
+            </ul>
+           </header>
+           <!-- blogs start now -->
+        <article id="first-blog" class="blog">
+            <h3 id="first-title">Blog No-1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus ad suscipit dolores maiores praesentium qui facere autem iusto corporis optio, ipsam sed atque quibusdam minus excepturi necessitatibus similique illum aut.</p>
+        </article>
+        <article class="blog">
+            <h3 id="second-title">Blog No-2</h3>
+            <p>Fugit doloribus vero autem voluptas quae placeat distinctio et, cupiditate ab recusandae maxime. Corporis adipisci, itaque enim in unde eius quas provident explicabo commodi ullam eveniet rem expedita consectetur reiciendis?</p>
+        </article>
+        <article class="blog">
+            <h3 id="third-title">Blog No-3</h3>
+            <p>Quos, omnis neque? Excepturi, labore quo rem totam tenetur ea quos necessitatibus eos veniam voluptate ducimus sint possimus iure iusto delectus velit porro sapiente, eius aperiam officia quidem? Voluptatibus, aliquam?</p>
+        </article>
+       </section>
+    </main>
+<script>
+    // explore getElementsByTagName
+    const blogTitles = document.getElementsByTagName('h3');
+    for(const h3 of blogTitles){
+        console.log(h3.innerText);
+    }
+    const blogDetails = document.getElementsByTagName('p');
+    for (const p of blogDetails){
+        console.log(p.innerText);
+    }
+
+       // explore getElementById
+    const firstTitle = document.getElementById('first-title');
+    console.log(firstTitle);
+    firstTitle.innerText = 'title replaced by js';
+    firstTitle.style.backgroundColor = 'red';
+    firstTitle.style.fontSize = '25px';
+    firstTitle.style.padding = '10px';
+    firstTitle.style.marginLeft = '20px';
+    firstTitle.style.textAlign = 'center';
+
+   
+    console.log('there is a wall between them');
+
+
+    // explore querySelector
+    const singleBlog = document.querySelector('.blog');
+    console.log(singleBlog);
+
+
+
+    console.log('there is a another wall between them');
+
+    // explore querySelectorAll
+    const threeBlogs = document.querySelectorAll('.blog');
+    for(const blog of threeBlogs){
+        console.log(blog);
+    }
+
+
+
+    // create and add element by js
+
+
+    // create the element
+     const li = document.createElement('li');
+     li.innerText = 'this is list no -12';
+
+    //  get the parent element
+    const ul = document.getElementById('lists');
+    ul.appendChild(li);
+
+    // create elements
+     const article = document.createElement('article');
+     article.classList.add('blog');
+
+   /*  const h3 = document.createElement('h3');
+    h3.innerText = 'Blog No-4';
+
+    const p = document.createElement('p');
+    p.innerText = 'Quos, omnis neque? Excepturi, labore quo rem totam tenetur ea quos necessitatibus eos veniam voluptate ducimus sint possimus iure iusto delectus velit porro sapiente, eius aperiam officia quidem? Voluptatibus, aliquam?';
+
+    article.appendChild(h3);
+    article.appendChild(p); */
+    article.innerHTML = `
+    <h3>Blog No-4</h3>
+    <p>Quos, omnis neque? Excepturi, labore quo rem totam tenetur ea quos necessitatibus eos veniam voluptate ducimus sint possimus iure iusto delectus velit porro sapiente, eius aperiam officia quidem? Voluptatibus, aliquam?</p>`;
+
+    // get the parent element
+    const section = document.getElementById('all-blogs');
+    section.appendChild(article);
+
+
+     // explore getElementsByClassName
+
+     const allBlogs = document.getElementsByClassName('blog');
+    for (const blog of allBlogs){
+        console.log(blog);
+        blog.style.border = '2px solid yellow';
+        blog.style.margin = '5px';
+        blog.style.padding = '5px';
+        blog.style.borderRadius = '10px';
+
+    }
+
+    // remove an element by js
+    const parent = document.getElementById('lists');
+    const fifth = document.getElementById('special-one');
+    
+    parent.removeChild(fifth);
+</script>
+</body>
+</html>
